@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Debug</string>
+    <string name="debug_tip">touch to start fragment: %1$s \nlong touch to start main: %2$s</string>
+</resources>
