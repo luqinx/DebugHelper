@@ -29,10 +29,16 @@ class DebugHelper {
     }
 
     static ILog getLogHelper() {
+        if (sDebugHelper == null) {
+            return new MockLog();
+        }
         return sDebugHelper.getLogHelper();
     }
 
     static IUIDebug getUIDebugHelper() {
+        if (sDebugHelper == null) {
+            return new MockUIDebugHelper(); 
+        }
         return sDebugHelper.getUIDebugHelper();
     }
 
