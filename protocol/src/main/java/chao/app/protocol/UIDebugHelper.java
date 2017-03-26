@@ -12,9 +12,6 @@ import chao.app.protocol.protocol.IUIDebug;
 
 public class UIDebugHelper {
 
-    private static final String DEBUG_CLASS_NAME = "chao.app.uidebug.UIDebugHelperImp";
-    private static final String DEBUG_FIELD_NAME = "debugImp";
-
     public static DebugInfo newDebugInfo() {
         return new DebugInfo();
     }
@@ -51,6 +48,10 @@ public class UIDebugHelper {
     public static void enterDebugMode(DebugInfo info) {
         IUIDebug debug = DebugHelper.getUIDebugHelper();
         if (debug != null) {
+            if (info == null || info.fromActivity == null || info.debugClazz == null) {
+                throw new NullPointerException("info and info.fromActivity and info.debugClazz should not be null.");
+            }
+
             debug.enterDebugMode(info.fromActivity, info.debugClazz, info.mainClazz);
         }
     }

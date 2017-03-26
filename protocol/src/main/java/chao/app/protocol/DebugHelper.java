@@ -9,7 +9,7 @@ import chao.app.protocol.protocol.IUIDebug;
  * @since 2017/3/26
  */
 
-public class DebugHelper {
+class DebugHelper {
 
     private static IDebugHelper sDebugHelper;
 
@@ -28,11 +28,11 @@ public class DebugHelper {
         }
     }
 
-    public static ILog getLogHelper() {
+    static ILog getLogHelper() {
         return sDebugHelper.getLogHelper();
     }
 
-    public static IUIDebug getUIDebugHelper() {
+    static IUIDebug getUIDebugHelper() {
         return sDebugHelper.getUIDebugHelper();
     }
 

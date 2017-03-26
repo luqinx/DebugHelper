@@ -4,6 +4,7 @@
         android:supportsRtl="true">
         <activity android:name=".DebugFragmentContainer" />
         <activity android:name=".DebugSupportFragmentContainer"/>
+        <activity android:name=".UIDebugActivity"/>
 
     </application>
 

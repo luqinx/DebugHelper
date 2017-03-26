@@ -22,7 +22,7 @@ public class Launcher extends AppCompatActivity {
     private static final Class DEBUG_CLASS = SecondActivity.class;  //或 Activity 的子类
 //    private static final Class DEBUG_CLASS = SecondSupportFragment.class;  //或 android.support.v4.app.Fragment 的子类
 
-    private static final boolean UI_DEBUG_ENABLED = BuildConfig.DEBUG && true;
+    private static final boolean UI_DEBUG_ENABLED = BuildConfig.DEBUG && true;  //可以通过设置UI_DEBUG_ENABLED启用和关闭UI调试
 
 
     @Override
@@ -39,7 +39,7 @@ public class Launcher extends AppCompatActivity {
         UIDebugHelper.DebugInfo debugInfo = UIDebugHelper.newDebugInfo()
                 .debugClass(DEBUG_CLASS)  // 要调试的界面，可以是activity或者fragment
                 .fromActivity(this)       //提供context
-                .mainClass(MainActivity.class); // 一般指定首页Activity的class，调试也长按可以进入mainClazz指定的activity
+                .mainClass(MainActivity.class); // 长按调试空白页可以进入mainClazz指定的activity,这里指定你首页Activity的class
 
 
         if (UI_DEBUG_ENABLED) {

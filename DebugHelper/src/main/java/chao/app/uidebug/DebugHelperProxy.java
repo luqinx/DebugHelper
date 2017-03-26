@@ -5,6 +5,9 @@ import chao.app.protocol.protocol.ILog;
 import chao.app.protocol.protocol.IUIDebug;
 
 /**
+ *
+ * DebugHelperProxy是由反射调用，勿删！！！
+ *
  * @author chao.qin
  * @since 2017/3/26
  */
@@ -16,19 +19,6 @@ public class DebugHelperProxy implements IDebugHelper{
     }
 
     public IUIDebug getUIDebugHelper() {
-        return UIDebugHelperImp.newUIDebug();
+        return new UIDebugHelperImp();
     }
-
-//    private static class DebugHelperImp implements IDebugHelper {
-//
-//        @Override
-//        public ILog getLogHelper() {
-//            return ;
-//        }
-//
-//        @Override
-//        public IUIDebug getUIDebugHelper() {
-//            return null;
-//        }
-//    }
 }

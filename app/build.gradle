@@ -5,7 +5,7 @@ android {
         debughelper {
             keyAlias 'debughelper.jks'
             keyPassword 'qinchao'
-            storeFile file('/Users/chao/AndroidStudioProjects/AndroidRepo2/Debug/debughelper.keystore.jks')
+            storeFile file('../debughelper.keystore.jks')
             storePassword 'qinchao'
         }
     }

@@ -9,22 +9,16 @@ import chao.app.protocol.protocol.ILog;
 
 public class LogHelper {
 
-    private static final String LOG_CLASS_NAME = "chao.app.uidebug.LogHelperImp";
-
-    private static ILog mLog;
+    private static ILog mLog = DebugHelper.getLogHelper();
 
     static {
-        new LogHelper();
-    }
-
-    private LogHelper() {
-        mLog = DebugHelper.getLogHelper();
         if (mLog == null) {
             mLog = new MockLog();
         }
     }
 
-    private class MockLog implements ILog {
+
+    private static class MockLog implements ILog {
 
         @Override
         public int e(String tag, String log) {
