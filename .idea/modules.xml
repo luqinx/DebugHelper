@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DebugHelper.iml" filepath="$PROJECT_DIR$/DebugHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DebugHelper/DebugHelper-DebugHelper.iml" filepath="$PROJECT_DIR$/DebugHelper/DebugHelper-DebugHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/protocol/protocol.iml" filepath="$PROJECT_DIR$/protocol/protocol.iml" />
+    </modules>
+  </component>
+</project>

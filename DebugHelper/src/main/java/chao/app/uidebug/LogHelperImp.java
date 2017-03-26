@@ -9,7 +9,7 @@ import chao.app.protocol.protocol.ILog;
  * @since 2017/3/24
  */
 
-public class LogHelperImp implements ILog {
+class LogHelperImp implements ILog {
 
     @Override
     public int e(String tag, String log) {

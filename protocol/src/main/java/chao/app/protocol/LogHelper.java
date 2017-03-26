@@ -18,16 +18,7 @@ public class LogHelper {
     }
 
     private LogHelper() {
-        try {
-            Class c = Class.forName(LOG_CLASS_NAME);
-            mLog = (ILog) c.newInstance();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+        mLog = DebugHelper.getLogHelper();
         if (mLog == null) {
             mLog = new MockLog();
         }

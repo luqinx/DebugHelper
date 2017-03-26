@@ -13,9 +13,11 @@ import chao.app.protocol.protocol.IUIDebug;
  * @since 2017/3/23
  */
 
-public class UIDebugHelperImp {
+class UIDebugHelperImp {
 
-    private static DebugImp debugImp = new DebugImp(); //反射获取，勿删！！
+    static DebugImp newUIDebug(){
+        return new DebugImp();
+    }
 
     private static class DebugImp implements IUIDebug {
 
@@ -25,7 +27,7 @@ public class UIDebugHelperImp {
         }
     }
 
-    public static void enterDebugMode(final Activity activity, final Class clazz, final Class<? extends Activity> main) {
+    static void enterDebugMode(final Activity activity, final Class clazz, final Class<? extends Activity> main) {
 
         activity.setContentView(R.layout.main);
         TextView debugTip = (TextView) activity.findViewById(R.id.debug_tip);

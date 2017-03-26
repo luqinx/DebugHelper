@@ -5,7 +5,7 @@ package chao.app.protocol.protocol;
  * @since 2017/3/24
  */
 
-public interface ILog {
+public interface ILog{
     /**
      * error logs
      */

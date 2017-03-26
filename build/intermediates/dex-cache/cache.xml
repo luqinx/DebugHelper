@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/chao/codes/github/mycode/DebugHelper/protocol/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="554696ee9d56f4ecbabe502384a49b5b57b50504">
+        <dex dex="/Users/chao/codes/github/mycode/DebugHelper/app/build/intermediates/pre-dexed/debug/classes_982a5facd2f441ad1f528cadfe0e8681c8f7273c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/chao/codes/github/mycode/DebugHelper/DebugHelper/build/intermediates/bundles/default/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9878f594ebeadd9b9484a92d0742f062622753ea">
+        <dex dex="/Users/chao/codes/github/mycode/DebugHelper/app/build/intermediates/pre-dexed/debug/classes_2e4d9ca7ea48a07d528774d00420d2916debab99.jar" />
+    </item>
+
+</items>

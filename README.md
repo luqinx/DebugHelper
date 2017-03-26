@@ -29,12 +29,18 @@ app启动时，UIDebugHelper会直接启动你指定的Activity或者Fragment，
 ### 使用方式
 第一步： 添加DebugHelper和protocol两个Module到你的项目，并添加依赖：
 ```
- ...
+dependencies {
 
- compile project(':protocol')
+  ....
 
- debugCompile project(':DebugHelper') //DebugHelper使用debugCompile而不是compile以确保不会被编译到release版本中
- ...
+  compile project(':protocol')
+
+  debugCompile project(':DebugHelper') //DebugHelper使用debugCompile而不是compile以确保不会被编译到release版本中
+
+  ....
+
+}
+
 ```
 
 第二步： 在launcher activity的onCreate中启动uidebug模式
@@ -56,7 +62,8 @@ app启动时，UIDebugHelper会直接启动你指定的Activity或者Fragment，
         super.onCreate(savedInstanceState);
 
 
-        LogHelper.e("chao.qin","this is a error test");
+        //LogHelper测试
+        LogHelper.e("chao.qin","this is a error test");    
         LogHelper.v("chao.qin","this is a verbose test");
         LogHelper.i("chao.qin","this is a info test");
         LogHelper.w("chao.qin","this is a waring test");

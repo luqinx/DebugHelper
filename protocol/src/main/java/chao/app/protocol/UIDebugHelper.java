@@ -2,10 +2,7 @@ package chao.app.protocol;
 
 import android.app.Activity;
 
-import java.lang.reflect.Field;
-
 import chao.app.protocol.protocol.IUIDebug;
-import chao.app.protocol.utils.ReflectUtil;
 
 
 /**
@@ -52,15 +49,9 @@ public class UIDebugHelper {
      *
      */
     public static void enterDebugMode(DebugInfo info) {
-        try {
-            Class c = Class.forName(DEBUG_CLASS_NAME);
-            Field field = ReflectUtil.getFiled(c, DEBUG_FIELD_NAME);
-            IUIDebug debug = ReflectUtil.getValue(null, field);
-            if (debug != null) {
-                debug.enterDebugMode(info.fromActivity, info.debugClazz, info.mainClazz);
-            }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        IUIDebug debug = DebugHelper.getUIDebugHelper();
+        if (debug != null) {
+            debug.enterDebugMode(info.fromActivity, info.debugClazz, info.mainClazz);
         }
     }
 }
