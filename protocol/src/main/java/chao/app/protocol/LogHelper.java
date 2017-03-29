@@ -9,6 +9,7 @@ import chao.app.protocol.protocol.ILog;
 
 public class LogHelper {
 
+    private static final String TAG = LogHelper.class.getSimpleName();
     private static ILog mLog = DebugHelper.getLogHelper();
 
     static {
@@ -67,4 +68,38 @@ public class LogHelper {
         return mLog.v(tag,log);
     }
 
+    public static int e(String tag, String... logs) {
+        return e(tag,appendLogs(logs));
+    }
+
+    public static int v(String tag, String... logs) {
+        return v(tag,appendLogs(logs));
+    }
+
+    public static int d(String tag, String... logs) {
+        return d(tag,appendLogs(logs));
+    }
+
+    public static int i(String tag, String... logs) {
+        return i(tag,appendLogs(logs));
+    }
+
+    public static int w(String tag, String... logs) {
+        return w(tag,appendLogs(logs));
+    }
+
+    public static void debug(String... logs) {
+        d(TAG,appendLogs(logs));
+    }
+
+    private static String appendLogs(String... logs) {
+        if (logs == null || logs.length == 0) {
+            return "";
+        }
+        String result = "";
+        for (String log: logs) {
+            result =result + ", " + log;
+        }
+        return result.replaceFirst(", ","");
+    }
 }

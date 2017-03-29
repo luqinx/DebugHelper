@@ -11,14 +11,12 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
-import static chao.app.uidebug.R.layout.main;
-
 /**
  * @author chao.qin
  * @since 2017/3/26
  */
 
-public class UIDebugActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
+public final class UIDebugActivity extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener {
 
     static final String EXTRA_TARGET_CLASS = "target";
     static final String EXTRA_MAIN_CLASS = "main";
@@ -46,7 +44,7 @@ public class UIDebugActivity extends AppCompatActivity implements View.OnClickLi
         mTargetClazz = (Class) intent.getSerializableExtra(EXTRA_TARGET_CLASS);
         mMainClass = (Class<? extends Activity>) intent.getSerializableExtra(EXTRA_MAIN_CLASS);
 
-        setContentView(main);
+        setContentView(R.layout.uidebug_main);
         View layout = findViewById(R.id.main_layout);
         TextView debugTip = (TextView) layout.findViewById(R.id.debug_tip);
         debugTip.setText(getString(R.string.debug_tip,mTargetClazz.getSimpleName(),mMainClass.getSimpleName()));
