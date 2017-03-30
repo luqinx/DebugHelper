@@ -14,6 +14,6 @@ class UIDebugHelperImp implements IUIDebug{
 
     @Override
     public void enterDebugMode(Activity activity, Class debugClazz, Class<? extends Activity> mainClazz) {
-        UIDebugActivity.startDebugActivity(activity, debugClazz, mainClazz);
+        UIDebugLauncherActivity.startDebugActivity(activity, debugClazz, mainClazz);
     }
 }

@@ -1,5 +1,10 @@
 <component name="libraryTable">
   <library name="support-core-ui-25.2.0">
+    <ANNOTATIONS>
+      <root url="jar://D:/android-sdk/.android/build-cache/9ed366d99aa02cd5ed61c56f905af4a9c183bdc5/output/annotations.zip!/" />
+      <root url="jar://D:/android-sdk/.android/build-cache/9ed366d99aa02cd5ed61c56f905af4a9c183bdc5/output/annotations.zip!/" />
+      <root url="jar://D:/android-sdk/.android/build-cache/9ed366d99aa02cd5ed61c56f905af4a9c183bdc5/output/annotations.zip!/" />
+    </ANNOTATIONS>
     <CLASSES>
       <root url="jar://D:/android-sdk/.android/build-cache/9ed366d99aa02cd5ed61c56f905af4a9c183bdc5/output/jars/classes.jar!/" />
       <root url="file://D:/android-sdk/.android/build-cache/9ed366d99aa02cd5ed61c56f905af4a9c183bdc5/output/res" />
