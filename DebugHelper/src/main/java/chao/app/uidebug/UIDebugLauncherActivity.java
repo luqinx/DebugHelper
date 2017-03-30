@@ -41,11 +41,15 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        boolean debugOn = false;
 
         Intent intent = getIntent();
         if (intent != null) {
             mTargetClazz = (Class) intent.getSerializableExtra(EXTRA_TARGET_CLASS);
             mMainClass = (Class<? extends Activity>) intent.getSerializableExtra(EXTRA_MAIN_CLASS);
+            if (mTargetClazz != null) {
+                debugOn = true;
+            }
         }
 
         if (mTargetClazz == null) {
@@ -55,7 +59,9 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
             mMainClass = getMainClassFromAnnotation();
         }
 
-        if (!getDebugSwitchFromAnnotation()) {
+        debugOn = debugOn || getDebugSwitchFromAnnotation();
+
+        if (!debugOn) {
             if (!onCreate(savedInstanceState,false)) {
                 showMain(this, mMainClass);
                 finish();
