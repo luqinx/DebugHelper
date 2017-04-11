@@ -2,7 +2,6 @@ package chao.app.uidebug;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -63,7 +62,7 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
 
         if (!debugOn) {
             if (!onCreate(savedInstanceState,false)) {
-                showMain(this, mMainClass);
+                show(this, mMainClass);
                 finish();
             }
             return;
@@ -168,15 +167,6 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
         activity.startActivity(intent);
     }
 
-    public static void showMain(Context context,Class<? extends Activity> mainClazz) {
-        if (mainClazz == null) {
-            return;
-        }
-        Intent intent = new Intent(context,mainClazz);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
-    }
-
     @Override
     public void onClick(View v) {
         show(this,mTargetClazz);
@@ -184,7 +174,7 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
 
     @Override
     public boolean onLongClick(View v) {
-        showMain(this,mMainClass);
+        show(this,mMainClass);
         return true;
     }
 }

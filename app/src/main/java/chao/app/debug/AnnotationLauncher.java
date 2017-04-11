@@ -1,9 +1,17 @@
 package chao.app.debug;
 
+import chao.app.uidebug.UIDebugLauncherActivity;
+import chao.app.uidebug.annotations.DebugClass;
+import chao.app.uidebug.annotations.DebugSwitchON;
+import chao.app.uidebug.annotations.MainClass;
+
 /**
  * @author chao.qin
- * @since 2017/4/11
+ * @since 2017/3/30.
  */
 
-public class AnnotationLauncher {
+@DebugSwitchON(true)
+@DebugClass(SecondFragment.class)
+@MainClass(SecondFragment.class)
+public class AnnotationLauncher extends UIDebugLauncherActivity {
 }

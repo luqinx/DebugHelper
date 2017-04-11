@@ -12,7 +12,7 @@
 
         <activity android:name=".SecondActivity"/>
 
-        <activity android:name=".Launcher2">
+        <activity android:name=".AnnotationLauncher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
