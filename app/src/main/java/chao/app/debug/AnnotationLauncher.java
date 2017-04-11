@@ -12,6 +12,6 @@ import chao.app.uidebug.annotations.MainClass;
 
 @DebugSwitchON(true)
 @DebugClass(SecondFragment.class)
-@MainClass(SecondFragment.class)
+@MainClass(SecondActivity.class)
 public class AnnotationLauncher extends UIDebugLauncherActivity {
 }

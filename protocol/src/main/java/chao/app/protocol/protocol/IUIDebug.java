@@ -1,6 +1,7 @@
 package chao.app.protocol.protocol;
 
 import android.app.Activity;
+import android.content.Context;
 
 /**
  * @author chao.qin
@@ -9,4 +10,6 @@ import android.app.Activity;
 
 public interface IUIDebug {
     void enterDebugMode(Activity activity, Class debugClazz, Class<? extends Activity> mainClazz);
+
+    void show(Context context, Class clazz);
 }

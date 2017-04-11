@@ -1,6 +1,7 @@
 package chao.app.protocol;
 
 import android.app.Activity;
+import android.content.Context;
 
 import chao.app.protocol.protocol.IUIDebug;
 
@@ -54,5 +55,10 @@ public class UIDebugHelper {
 
             debug.enterDebugMode(info.fromActivity, info.debugClazz, info.mainClazz);
         }
+    }
+
+    public static void showUI(Context context, Class clazz) {
+        IUIDebug debug = DebugHelper.getUIDebugHelper();
+        debug.show(context,clazz);
     }
 }

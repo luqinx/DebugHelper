@@ -1,5 +1,8 @@
 package chao.app.protocol;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
 import chao.app.protocol.protocol.IDebugHelper;
 import chao.app.protocol.protocol.ILog;
 import chao.app.protocol.protocol.IUIDebug;
@@ -18,12 +21,18 @@ class DebugHelper {
     static {
         try {
             Class c = Class.forName(DEBUG_HELPER_PROXY);
-            sDebugHelper = (IDebugHelper) c.newInstance();
+            Constructor constructor = c.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            sDebugHelper = (IDebugHelper) constructor.newInstance();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
     }
@@ -41,7 +50,4 @@ class DebugHelper {
         }
         return sDebugHelper.getUIDebugHelper();
     }
-
-
-
 }

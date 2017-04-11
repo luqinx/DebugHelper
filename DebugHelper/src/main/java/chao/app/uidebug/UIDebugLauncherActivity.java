@@ -11,6 +11,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.TextView;
 
+import chao.app.protocol.UIDebugHelper;
 import chao.app.uidebug.annotations.DebugClass;
 import chao.app.uidebug.annotations.DebugSwitchON;
 import chao.app.uidebug.annotations.MainClass;
@@ -62,7 +63,7 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
 
         if (!debugOn) {
             if (!onCreate(savedInstanceState,false)) {
-                show(this, mMainClass);
+                UIDebugHelper.showUI(this, mMainClass);
                 finish();
             }
             return;
@@ -80,7 +81,7 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
         layout.setOnClickListener(this);
         layout.setOnLongClickListener(this);
 
-        show(this,mTargetClazz);
+        UIDebugHelper.showUI(this,mTargetClazz);
 
         onCreate(savedInstanceState,true);
     }
@@ -141,40 +142,14 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
         return super.onKeyDown(keyCode,event);
     }
 
-    private static void show(Activity activity, Class clazz) {
-
-        if (android.app.Fragment.class.isAssignableFrom(clazz)) {
-            showAppFragment(activity,clazz);
-        } else if (android.support.v4.app.Fragment.class.isAssignableFrom(clazz)) {
-            showSupportFragment(activity,clazz);
-        } else if (Activity.class.isAssignableFrom(clazz)) {
-            showActivity(activity,clazz);
-        }
-    }
-
-    private static void showAppFragment(Activity activity, Class fragment) {
-        Intent intent = DebugFragmentContainer.buildContainerIntent(activity, fragment);
-        activity.startActivity(intent);
-    }
-
-    private static void showSupportFragment(Activity activity, Class fragment) {
-        Intent intent = DebugSupportFragmentContainer.buildContainerIntent(activity, fragment);
-        activity.startActivity(intent);
-    }
-    private static void showActivity(Activity activity, Class targetActivity) {
-        Intent intent = new Intent(activity,targetActivity);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
-    }
-
     @Override
     public void onClick(View v) {
-        show(this,mTargetClazz);
+        UIDebugHelper.showUI(this,mTargetClazz);
     }
 
     @Override
     public boolean onLongClick(View v) {
-        show(this,mMainClass);
+        UIDebugHelper.showUI(this,mMainClass);
         return true;
     }
 }

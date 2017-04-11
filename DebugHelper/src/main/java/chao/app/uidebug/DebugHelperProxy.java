@@ -12,7 +12,7 @@ import chao.app.protocol.protocol.IUIDebug;
  * @since 2017/3/26
  */
 
-public class DebugHelperProxy implements IDebugHelper{
+class DebugHelperProxy implements IDebugHelper{
 
     public ILog getLogHelper() {
         return new LogHelperImp();
