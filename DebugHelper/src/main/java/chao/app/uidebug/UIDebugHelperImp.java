@@ -3,6 +3,7 @@ package chao.app.uidebug;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import chao.app.protocol.protocol.IUIDebug;
 
@@ -29,6 +30,35 @@ class UIDebugHelperImp implements IUIDebug{
         } else if (Activity.class.isAssignableFrom(clazz)) {
             showActivity(context,clazz);
         }
+    }
+
+    @Override
+    public void show(Context context, Class clazz, Bundle bundle) {
+        if (android.app.Fragment.class.isAssignableFrom(clazz)) {
+            showAppFragment(context,clazz,bundle);
+        } else if (android.support.v4.app.Fragment.class.isAssignableFrom(clazz)) {
+            showSupportFragment(context,clazz,bundle);
+        } else if (Activity.class.isAssignableFrom(clazz)) {
+            showActivity(context,clazz,bundle);
+        }
+    }
+
+    private static void showAppFragment(Context context, Class fragment,Bundle bundle) {
+        Intent intent = DebugFragmentContainer.buildContainerIntent(context, fragment);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+
+    private static void showSupportFragment(Context context, Class fragment,Bundle bundle) {
+        Intent intent = DebugSupportFragmentContainer.buildContainerIntent(context, fragment);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+    }
+    private static void showActivity(Context context, Class targetActivity,Bundle bundle) {
+        Intent intent = new Intent(context,targetActivity);
+        intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     private static void showAppFragment(Context context, Class fragment) {

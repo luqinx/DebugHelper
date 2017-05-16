@@ -1,5 +1,8 @@
 package chao.app.protocol;
 
+import android.content.Context;
+import android.os.Bundle;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
@@ -12,7 +15,7 @@ import chao.app.protocol.protocol.IUIDebug;
  * @since 2017/3/26
  */
 
-class DebugHelper {
+public class DebugHelper {
 
     private static IDebugHelper sDebugHelper;
 
@@ -49,5 +52,13 @@ class DebugHelper {
             return new MockUIDebugHelper(); 
         }
         return sDebugHelper.getUIDebugHelper();
+    }
+
+    public static void showUI(Context context,Class clazz) {
+        showUI(context,clazz,null);
+    }
+
+    public static void showUI(Context context, Class clazz, Bundle bundle) {
+        getUIDebugHelper().show(context,clazz,bundle);
     }
 }

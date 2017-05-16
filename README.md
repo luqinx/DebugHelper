@@ -27,61 +27,56 @@ app启动时，UIDebugHelper会直接启动你指定的Activity或者Fragment，
 
 
 ### 使用方式
-第一步： 添加DebugHelper和protocol两个Module到你的项目，并添加依赖：
+[![](https://jitpack.io/v/chaooooooo/DebugHelper.svg)](https://jitpack.io/#chaooooooo/DebugHelper)
+第一步:
+    在根目录的build.gradle中添加jitpack仓库
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+第二步:
+    项目中添加依赖：
+ 
+	dependencies {
+	        debugCompile 'com.github.chaooooooo.DebugHelper:DebugHelper:v0.1.8' //使用debugComile可以保证release版本编译的时候这个包不会被编译到apk中
+	        compile 'com.github.chaooooooo.DebugHelper:protocol:v0.1.8' //一个轻量的协议
+	}
+
+
+辅助界面调试：
+    新建一个Activity并继承 UIDebugLauncherActivity，可以通过注解的方式指定MainClass,DebugClass和调试开关,这样当app启动时将会直接打开debugClass指定的Activity or Fragment
+如果配合Android Studio的Instant Run,界面调试将变得非常方便
 ```
-dependencies {
-
-  ....
-
-  compile project(':protocol')
-
-  debugCompile project(':DebugHelper') //DebugHelper使用debugCompile而不是compile以确保不会被编译到release版本中
-
-  ....
-
+@DebugSwitchON(true)
+@DebugClass(SecondFragment.class)
+@MainClass(SecondActivity.class)
+public class SampleLauncher extends UIDebugLauncherActivity {
 }
-
 ```
 
-第二步： 在launcher activity的onCreate中启动uidebug模式
+使用LogHelper来输出log不用担心log泄漏问题:
 
 ```
-     /*
-      * DEBUG_CLASS 可以是Activity子类 ,android.app.Fragment子类或android.support.v4.app.Fragment子类
-      */
-      private static final Class DEBUG_CLASS = SecondFragment.class;    // android.app.Fragment 的子类
-  //    private static final Class DEBUG_CLASS = SecondActivity.class;  //或 Activity 的子类
-  //    private static final Class DEBUG_CLASS = SecondSupportFragment.class;  //或 android.support.v4.app.Fragment 的子类
+//LogHelper测试
+LogHelper.e(TAG, "this is a error test");
+LogHelper.v(TAG, "this is a verbose test");
+LogHelper.i(TAG, "this is a info test");
+LogHelper.w(TAG, "this is a waring test");
+LogHelper.d(TAG, "this is a debug test");
+```
+
+使用DebugHelper.showUI(Class clazz)便捷方法打开一个Activity or Fragment
+
+```
+DebugHelper.showUI(this,SecondActivity.class);
+DebugHelper.showUI(this,SecondFragment.class);
+DebugHelper.showUI(this,SecondSupportFragment.class);
 
 
-  private static final boolean UI_DEBUG_ENABLED = BuildConfig.DEBUG && true;
-
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-
-        //LogHelper测试
-        LogHelper.e("chao.qin","this is a error test");    
-        LogHelper.v("chao.qin","this is a verbose test");
-        LogHelper.i("chao.qin","this is a info test");
-        LogHelper.w("chao.qin","this is a waring test");
-        LogHelper.d("chao.qin","this is a debug test");
-
-        UIDebugHelper.DebugInfo debugInfo = UIDebugHelper.newDebugInfo()
-                .debugClass(DEBUG_CLASS)  // 要调试的界面，可以是activity或者fragment
-                .fromActivity(this)       //提供context
-                .mainClass(MainActivity.class); // 一般指定首页Activity的class，调试也长按可以进入mainClazz指定的activity
-
-
-        if (UI_DEBUG_ENABLED) {
-            UIDebugHelper.enterDebugMode(debugInfo);
-            return;
-        }
-
-        //这里做开屏界面等
-        MainActivity.show(this);
-        finish();
-    }
+DebugHelper.showUI(this,SecondActivity.class,new Bundle());
+DebugHelper.showUI(this,SecondFragment.class,new Bundle());  // Fragment是 android.app.Fragment 的子类
+DebugHelper.showUI(this,SecondSupportFragment.class,new Bundle());   //Fragment是 android.support.v4.app.Fragment 的子类
 ```
