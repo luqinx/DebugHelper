@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import chao.app.protocal.UIDebugLauncherActivity;
 import chao.app.protocol.protocol.IUIDebug;
 
 

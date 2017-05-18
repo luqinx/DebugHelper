@@ -2,6 +2,7 @@ package chao.app.protocol;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 
 import chao.app.protocol.protocol.IUIDebug;
 
@@ -20,4 +21,11 @@ class MockUIDebugHelper implements IUIDebug {
     public void show(Context context, Class clazz) {
 
     }
+
+    @Override
+    public void show(Context context, Class clazz, Bundle bundle) {
+
+    }
+
+
 }

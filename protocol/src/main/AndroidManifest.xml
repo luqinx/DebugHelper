@@ -2,7 +2,9 @@
 
     <application android:allowBackup="true" android:label="@string/app_name"
         android:supportsRtl="true">
-
+        <activity
+            android:name="chao.app.uidebug.UIDebugLauncherActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

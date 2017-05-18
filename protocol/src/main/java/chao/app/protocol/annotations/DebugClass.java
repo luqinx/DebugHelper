@@ -1,4 +1,4 @@
-package chao.app.uidebug.annotations;
+package chao.app.protocol.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Inherited;
@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface MainClass {
-    Class value();
+public @interface DebugClass {
+    Class<?> value();
 }

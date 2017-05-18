@@ -1,4 +1,4 @@
-package chao.app.uidebug;
+package chao.app.protocal;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,9 +12,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import chao.app.protocol.UIDebugHelper;
-import chao.app.uidebug.annotations.DebugClass;
-import chao.app.uidebug.annotations.DebugSwitchON;
-import chao.app.uidebug.annotations.MainClass;
+import chao.app.protocol.annotations.DebugClass;
+import chao.app.protocol.annotations.DebugSwitchON;
+import chao.app.protocol.annotations.MainClass;
 
 /**
  * @author chao.qin
@@ -29,7 +29,7 @@ public class UIDebugLauncherActivity extends AppCompatActivity implements View.O
     private Class mTargetClazz;
     private Class<? extends Activity> mMainClass;
 
-    static void startDebugActivity(Activity activity, final Class clazz, final Class<? extends Activity> main) {
+    public static void startDebugActivity(Activity activity, final Class clazz, final Class<? extends Activity> main) {
         Intent intent = new Intent(activity, UIDebugLauncherActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra(UIDebugLauncherActivity.EXTRA_TARGET_CLASS, clazz);

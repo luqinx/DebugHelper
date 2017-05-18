@@ -1,6 +1,3 @@
 <resources>
     <string name="app_name">Debug</string>
-    <string name="debug_tip">touch to start fragment: %1$s \nlong touch to start main: %2$s</string>
-    <string name="alter_title_exit_confirm">警告</string>
-    <string name="alter_message_exit_confirm">确认退出调试？</string>
 </resources>

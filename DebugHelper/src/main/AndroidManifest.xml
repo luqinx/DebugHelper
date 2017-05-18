@@ -1,11 +1,20 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="chao.app.uidebug">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="chao.app.uidebug">
 
-    <application android:allowBackup="true" android:label="@string/app_name"
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".DebugFragmentContainer" android:screenOrientation="portrait" />
-        <activity android:name=".DebugSupportFragmentContainer" android:screenOrientation="portrait"/>
-        <activity android:name=".UIDebugLauncherActivity" android:screenOrientation="portrait"/>
-
+        <activity
+            android:name=".DebugFragmentContainer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".DebugSupportFragmentContainer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PluginLauncherActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
