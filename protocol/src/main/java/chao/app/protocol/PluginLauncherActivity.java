@@ -1,4 +1,4 @@
-package chao.app.uidebug;
+package chao.app.protocol;
 
 import chao.app.protocal.UIDebugLauncherActivity;
 

@@ -11,10 +11,6 @@
         <activity
             android:name=".DebugSupportFragmentContainer"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".PluginLauncherActivity"
-            android:screenOrientation="portrait">
-        </activity>
     </application>
 
 </manifest>

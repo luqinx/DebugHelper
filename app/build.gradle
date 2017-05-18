@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
+apply plugin: 'debug.helper'
 
 android {
+
     signingConfigs {
         debughelper {
             keyAlias 'debughelper.jks'
@@ -9,6 +11,7 @@ android {
             storePassword 'qinchao'
         }
     }
+
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
@@ -43,4 +46,34 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile project(':protocol')
     debugCompile project(':DebugHelper')
+//    compile project(':lib')
 }
+
+
+//task printTest(type: TestTask) {
+//    doFirst {
+//        println("======> task started")
+//    }
+//    doLast {
+//        println("======> task finished!")
+//    }
+//}
+
+debughelper {
+    debugOn = true
+    debugClass = ""
+    mainClass = ""
+}
+
+//task useManifest(type: ManifestTask) {
+//    debugVariant = new DebugHelperVariant()
+//    debugVariant.configuration = project.debughelper
+//    debugVariant.variantName = "Debug"
+//    debugVariant.manifestPath = "/Users/chao/codes/github/mycode/DebugHelper/app/libs/AndroidManifest.xml"
+//    println "===========>  useManifest"
+//}
+//
+//task collect(type: CollectManifestTask) {
+//
+//    PluginUtil.getProjectManifests(project)
+//}

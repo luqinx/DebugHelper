@@ -1,1 +1,1 @@
-include ':app', ':DebugHelper', ':protocol'
+include ':app', ':DebugHelper', ':protocol', ':lib', ":buildsrc"
