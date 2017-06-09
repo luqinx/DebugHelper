@@ -1,6 +1,7 @@
 package chao.app.uidebug;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,7 +74,9 @@ class UIDebugHelperImp implements IUIDebug{
     }
     private static void showActivity(Context context, Class targetActivity) {
         Intent intent = new Intent(context,targetActivity);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if (context instanceof Application) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
         context.startActivity(intent);
     }
 }

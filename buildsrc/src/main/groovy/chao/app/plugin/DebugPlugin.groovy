@@ -29,8 +29,6 @@ class DebugPlugin implements Plugin<Project> {
                 if (debugVariant.variantName == "Debug") {
                     manifestTask.debugVariant = debugVariant
 
-                    println "===============>" + variantOutput.processManifest.project.name
-
                     manifestTask.mustRunAfter variantOutput.processManifest
                     variantOutput.processResources.dependsOn manifestTask
                 }
