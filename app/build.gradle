@@ -60,7 +60,7 @@ dependencies {
 //}
 
 debughelper {
-    debugOn = true
+    debugOn = false
     debugClass = ""
     mainClass = ""
 }

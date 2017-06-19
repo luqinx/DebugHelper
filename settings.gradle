@@ -1,1 +1,2 @@
-include ':app', ':DebugHelper', ':protocol', ':lib', ":buildsrc"
+rootProject.name='DebugHelper'
+include ':app', ':DebugHelper', ':protocol', ':lib', ':buildSrc'
