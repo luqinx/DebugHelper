@@ -1,2 +1,2 @@
 rootProject.name='DebugHelper'
-include ':Helper', ':HelperImp', ':lib', ':buildSrc'
+include ':Helper', ':HelperImp', ':buildSrc'
