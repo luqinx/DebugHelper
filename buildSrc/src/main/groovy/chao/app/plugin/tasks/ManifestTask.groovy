@@ -1,7 +1,6 @@
 package chao.app.plugin.tasks
 
 import chao.app.plugin.DebugHelperVariant
-import chao.app.plugin.PluginUtil
 import groovy.xml.Namespace
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
@@ -35,7 +34,7 @@ class ManifestTask extends DefaultTask {
 
     @TaskAction
     public void modifyLauncherAttribute() {
-        if (!PluginUtil.isAndroidModule(project)) {
+        if (!project.plugins.findPlugin("com.android.application") || project.plugins.findPlugin("com.android.library")) {
             return
         }
         if (!debugVariant.configuration.debugOn) {

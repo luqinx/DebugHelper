@@ -1,1 +1,1 @@
-include ':Helper', ':HelperImp', ':buildSrc'
+include ':Helper', ':HelperImp', ':buildSrc',':app'

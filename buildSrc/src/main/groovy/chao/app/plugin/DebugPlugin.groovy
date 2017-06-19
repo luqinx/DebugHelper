@@ -15,7 +15,7 @@ class DebugPlugin implements Plugin<Project> {
 
         project.tasks.create("testTask",TestTask)
 
-        project.gradle.addBuildListener(new DebugBuildListener())
+//        project.gradle.addBuildListener(new DebugBuildListener())
 
 
         project.afterEvaluate {

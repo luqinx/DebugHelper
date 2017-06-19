@@ -4,7 +4,6 @@ apply plugin: 'maven'
 dependencies {
     compile gradleApi()
     compile localGroovy()
-    compile 'com.android.tools.build:gradle:2.3.1'
 
 }
 
@@ -13,11 +12,11 @@ repositories {
 }
 
 
-uploadArchives {
-//    repositories.mavenDeployer {
-//        repository(url: 'file:../lib')
+//uploadArchives {
+////    repositories.mavenDeployer {
+////        repository(url: 'file:../lib')
+////    }
+//    repositories {
+//        mavenCentral()
 //    }
-    repositories {
-        mavenCentral()
-    }
-}
+//}
